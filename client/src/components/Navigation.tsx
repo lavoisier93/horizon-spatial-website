@@ -17,6 +17,18 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { name: "Accueil", href: "/" },
     { name: "Expertise", href: "/expertise" },
@@ -81,6 +93,8 @@ export default function Navigation() {
         <button
           className="md:hidden p-2 text-foreground"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
         </button>
@@ -88,7 +102,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-background border-b border-border p-4 md:hidden flex flex-col gap-4 shadow-xl animate-in slide-in-from-top-5">
+        <div className="fixed inset-0 top-[80px] bg-background z-40 p-6 md:hidden flex flex-col gap-6 animate-in slide-in-from-right-5 overflow-y-auto">
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href}>
               <span
