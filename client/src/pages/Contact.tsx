@@ -1,11 +1,46 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Mail, Phone, Clock } from "lucide-react";
+import { MapPin, Mail, Phone, Clock, Loader2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formRef.current) return;
+
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      
+      toast.success("Message envoyé avec succès !", {
+        description: "Nous vous répondrons dans les plus brefs délais."
+      });
+      formRef.current.reset();
+    } catch (error) {
+      console.error("Erreur d'envoi:", error);
+      toast.error("Erreur lors de l'envoi", {
+        description: "Veuillez réessayer plus tard ou nous contacter directement par email."
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background font-sans">
       <Navigation />
@@ -84,35 +119,42 @@ export default function Contact() {
           {/* Contact Form */}
           <div className="bg-card p-8 rounded-2xl border border-border shadow-sm">
             <h3 className="font-heading font-bold text-2xl mb-6">Envoyez-nous un message</h3>
-            <form className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="firstname" className="text-sm font-medium">Prénom</label>
-                  <Input id="firstname" placeholder="Votre prénom" />
+                  <Input id="firstname" name="firstname" placeholder="Votre prénom" required />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="lastname" className="text-sm font-medium">Nom</label>
-                  <Input id="lastname" placeholder="Votre nom" />
+                  <Input id="lastname" name="lastname" placeholder="Votre nom" required />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium">Email</label>
-                <Input id="email" type="email" placeholder="votre@email.com" />
+                <Input id="email" name="email" type="email" placeholder="votre@email.com" required />
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-medium">Sujet</label>
-                <Input id="subject" placeholder="L'objet de votre message" />
+                <Input id="subject" name="subject" placeholder="L'objet de votre message" required />
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium">Message</label>
-                <Textarea id="message" placeholder="Détaillez votre projet ou votre demande..." className="min-h-[150px]" />
+                <Textarea id="message" name="message" placeholder="Détaillez votre projet ou votre demande..." className="min-h-[150px]" required />
               </div>
 
-              <Button type="submit" className="w-full h-12 font-heading font-bold text-lg">
-                Envoyer le message
+              <Button type="submit" className="w-full h-12 font-heading font-bold text-lg" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Envoi en cours...
+                  </>
+                ) : (
+                  "Envoyer le message"
+                )}
               </Button>
             </form>
           </div>
