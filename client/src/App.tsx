@@ -6,6 +6,10 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
+import Expertise from "./pages/Expertise";
+import Solutions from "./pages/Solutions";
+import Projets from "./pages/Projets";
+import About from "./pages/About";
 
 
 function Router() {
@@ -13,6 +17,10 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/contact"} component={Contact} />
+      <Route path={"/expertise"} component={Expertise} />
+      <Route path={"/solutions"} component={Solutions} />
+      <Route path={"/projets"} component={Projets} />
+      <Route path={"/about"} component={About} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

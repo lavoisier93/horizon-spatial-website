@@ -38,9 +38,8 @@ export default function Navigation() {
         {/* Logo */}
         <Link href="/">
           <div className="flex items-center gap-2 cursor-pointer group">
-            <div className="relative w-10 h-10 bg-primary rounded-lg flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform">
-              <span className="text-white font-heading font-bold text-xl">H</span>
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary opacity-50" />
+            <div className="relative w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform bg-white">
+              <img src="/icon.png" alt="Horizon Spatial Logo" className="w-full h-full object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="font-heading font-bold text-xl leading-none tracking-tight">

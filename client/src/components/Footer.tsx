@@ -9,8 +9,8 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center text-white font-heading font-bold">
-                H
+              <div className="w-8 h-8 rounded-md flex items-center justify-center overflow-hidden bg-white">
+                <img src="/icon.png" alt="Horizon Spatial Logo" className="w-full h-full object-contain" />
               </div>
               <span className="font-heading font-bold text-xl">Horizon Spatial</span>
             </div>
