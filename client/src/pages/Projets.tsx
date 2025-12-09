@@ -3,8 +3,12 @@ import { ArrowRight, MapPin, Calendar, Building, CheckCircle2 } from "lucide-rea
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
+import { MapView } from "@/components/Map";
+import { useRef } from "react";
 
 export default function Projets() {
+  const mapRef = useRef<google.maps.Map | null>(null);
+
   const projects = [
     {
       title: "Plans d'Urbanisme Directeurs",
@@ -13,7 +17,8 @@ export default function Projets() {
       year: "2025",
       description: "Élaboration de documents de planification stratégique pour le développement harmonieux des chefs-lieux de département. Zonage, règlements d'urbanisme et programmation des équipements.",
       image: "https://images.unsplash.com/photo-1591523383370-58957457807d?q=80&w=2070&auto=format&fit=crop",
-      tags: ["PUD", "Planification", "Réglementation"]
+      tags: ["PUD", "Planification", "Réglementation"],
+      coordinates: { lat: 7.539989, lng: -5.547080 } // Centre approx Côte d'Ivoire
     },
     {
       title: "Plans de Développement Local",
@@ -22,7 +27,8 @@ export default function Projets() {
       year: "2024-2025",
       description: "Diagnostic territorial approfondi et programmation des investissements pour le développement durable des communautés rurales. Approche participative incluant les populations locales.",
       image: "https://images.unsplash.com/photo-1542601906990-b4d3fb7d5fa5?q=80&w=2070&auto=format&fit=crop",
-      tags: ["PDL", "Diagnostic", "Participation"]
+      tags: ["PDL", "Diagnostic", "Participation"],
+      coordinates: { lat: 9.5, lng: -5.5 } // Nord CI
     },
     {
       title: "Aménagement Résidentiel & 3D",
@@ -31,7 +37,8 @@ export default function Projets() {
       year: "2025",
       description: "Études de faisabilité, conception de plans de masse et modélisation 3D pour des projets immobiliers privés. Création de visuels immersifs pour la commercialisation.",
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-      tags: ["Immobilier", "3D", "Conception"]
+      tags: ["Immobilier", "3D", "Conception"],
+      coordinates: { lat: 5.3600, lng: -4.0083 } // Abidjan
     },
     {
       title: "Missions Géomatiques Diverses",
@@ -40,9 +47,40 @@ export default function Projets() {
       year: "Continu",
       description: "Développement de bases de données SIG, production de cartes thématiques et analyses spatiales pour divers clients institutionnels et privés.",
       image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop",
-      tags: ["SIG", "Cartographie", "Data"]
+      tags: ["SIG", "Cartographie", "Data"],
+      coordinates: { lat: 6.8, lng: -5.3 } // Centre-Sud
     }
   ];
+
+  const handleMapReady = (map: google.maps.Map) => {
+    mapRef.current = map;
+    
+    // Add markers for each project
+    projects.forEach((project) => {
+      const marker = new google.maps.marker.AdvancedMarkerElement({
+        map,
+        position: project.coordinates,
+        title: project.title,
+      });
+      
+      // Optional: Add info window on click
+      const infoWindow = new google.maps.InfoWindow({
+        content: `
+          <div style="padding: 8px;">
+            <h3 style="font-weight: bold; margin-bottom: 4px;">${project.title}</h3>
+            <p style="font-size: 12px; color: #666;">${project.category}</p>
+          </div>
+        `
+      });
+
+      marker.addListener("click", () => {
+        infoWindow.open({
+          anchor: marker,
+          map,
+        });
+      });
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background font-sans">
@@ -61,6 +99,24 @@ export default function Projets() {
           <p className="text-muted-foreground text-xl leading-relaxed max-w-2xl mx-auto">
             Découvrez comment nous accompagnons nos clients dans la concrétisation de leurs ambitions territoriales.
           </p>
+        </div>
+      </section>
+
+      {/* Interactive Map Section */}
+      <section className="py-12 bg-background">
+        <div className="container">
+          <div className="rounded-3xl overflow-hidden border border-border shadow-xl h-[500px] relative">
+            <MapView 
+              initialCenter={{ lat: 7.54, lng: -5.55 }} // Center of Côte d'Ivoire
+              initialZoom={7}
+              onMapReady={handleMapReady}
+              className="w-full h-full"
+            />
+            <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg max-w-xs z-10 border border-border/50">
+              <h3 className="font-heading font-bold text-lg mb-1">Nos Projets en Côte d'Ivoire</h3>
+              <p className="text-xs text-muted-foreground">Explorez nos interventions à travers le territoire national.</p>
+            </div>
+          </div>
         </div>
       </section>
 
