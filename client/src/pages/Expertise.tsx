@@ -105,11 +105,11 @@ export default function Expertise() {
     <PageTransition>
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Expertise — Horizon Spatial</title>
-        <meta name="description" content="Découvrez notre expertise unique en urbanisme réglementaire, plans de lotissements, solutions SIG, analyse territoriale et accompagnement administratif en Côte d'Ivoire."
+        <title>Expertise Urbanisme & SIG en Côte d'Ivoire | Cabinet Agréé Abidjan — Horizon Spatial</title>
+        <meta name="description" content="Cabinet d'urbanisme agréé à Abidjan : plans de lotissement, demande d'ACD, approbation de lotissement, SIG foncier et cartographie. Urbaniste agréé en Côte d'Ivoire."
         />
-        <meta property="og:title" content="Expertise — Horizon Spatial" />
-        <meta property="og:description" content="L&apos;alliance de la planification urbaine et de l&apos;intelligence géospatiale pour des projets durables."
+        <meta property="og:title" content="Expertise Urbanisme & SIG en Côte d'Ivoire | Cabinet Agréé Abidjan" />
+        <meta property="og:description" content="Cabinet d'urbanisme agréé à Abidjan : plans de lotissement, demande d'ACD, approbation de lotissement, SIG foncier. Urbaniste agréé en Côte d'Ivoire."
         />
         <meta property="og:url" content="https://www.horizonspatial.ci/expertise" />
         <meta property="og:image" content="https://www.horizonspatial.ci/logo.jpg" />

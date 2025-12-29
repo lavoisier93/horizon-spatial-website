@@ -34,6 +34,7 @@ export default function Navigation() {
   const navLinks = [
     { name: "Accueil", href: "/" },
     { name: "Expertise", href: "/expertise" },
+    { name: "Urbanisme CI", href: "/urbanisme-cote-ivoire" },
     { name: "Solutions", href: "/solutions" },
     { name: "Projets", href: "/projets" },
     { name: "À Propos", href: "/about" },

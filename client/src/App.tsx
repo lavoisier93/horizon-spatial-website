@@ -10,6 +10,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import Expertise from "./pages/Expertise";
 import Solutions from "./pages/Solutions";
 import Projets from "./pages/Projets";
+import UrbanismeCI from "./pages/UrbanismeCI";
 import About from "./pages/About";
 import MentionsLegales from "./pages/MentionsLegales";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
@@ -26,6 +27,7 @@ function Router() {
       <Route path={"/expertise"} component={Expertise} />
       <Route path={"/solutions"} component={Solutions} />
       <Route path={"/projets"} component={Projets} />
+      <Route path={"/urbanisme-cote-ivoire"} component={UrbanismeCI} />
       <Route path={"/about"} component={About} />
       <Route path={"/mentions-legales"} component={MentionsLegales} />
       <Route path={"/politique-confidentialite"} component={PolitiqueConfidentialite} />

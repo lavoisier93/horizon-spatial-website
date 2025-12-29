@@ -11,10 +11,10 @@ export default function About() {
     <PageTransition>
     <div className="min-h-screen bg-background font-sans">
       <Helmet>
-        <title>Horizon Spatial — À propos</title>
-        <meta name="description" content="Découvrez notre vision, notre mission et l’équipe pluridisciplinaire d’Horizon Spatial, bureau d’études de nouvelle génération." />
-        <meta property="og:title" content="Horizon Spatial — À propos" />
-        <meta property="og:description" content="Urbanisme réglementaire, géomatique et technologie au service des territoires africains." />
+<title>À Propos | Cabinet d'Urbanisme Agréé Abidjan — Horizon Spatial</title>
+        <meta name="description" content="Horizon Spatial, cabinet d'urbanisme agréé à Abidjan fondé par Lavoisier Ousmane, urbaniste agréé. Spécialiste lotissement, régularisation foncière et SIG en Côte d'Ivoire." />
+        <meta property="og:title" content="À Propos | Cabinet d'Urbanisme Agréé Abidjan" />
+        <meta property="og:description" content="Cabinet d'urbanisme agréé à Abidjan fondé par Lavoisier Ousmane, urbaniste agréé. Spécialiste lotissement et SIG en Côte d'Ivoire." />
         <meta property="og:url" content="https://www.horizonspatial.ci/about" />
         <meta property="og:image" content="https://www.horizonspatial.ci/logo.jpg" />
         <link rel="canonical" href="https://www.horizonspatial.ci/about" />

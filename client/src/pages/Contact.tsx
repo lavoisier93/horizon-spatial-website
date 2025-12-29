@@ -61,11 +61,11 @@ export default function Contact() {
     <PageTransition>
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Contact — Horizon Spatial</title>
-        <meta name="description" content="Contactez Horizon Spatial pour démarrer votre projet d'aménagement territorial. Parlons de vos besoins en urbanisme, géomatique ou analyse de données."
+        <title>Contact | Cabinet d'Urbanisme Agréé Abidjan — Horizon Spatial</title>
+        <meta name="description" content="Contactez Horizon Spatial, cabinet d'urbanisme agréé à Abidjan. Devis gratuit pour plan de lotissement, demande d'ACD, approbation de lotissement en Côte d'Ivoire."
         />
-        <meta property="og:title" content="Contact — Horizon Spatial" />
-        <meta property="og:description" content="Prêt à transformer votre territoire ? Contactez notre équipe d'experts." />
+        <meta property="og:title" content="Contact | Cabinet d'Urbanisme Agréé Abidjan" />
+        <meta property="og:description" content="Contactez notre cabinet d'urbanisme agréé à Abidjan. Devis gratuit pour plan de lotissement, demande d'ACD en Côte d'Ivoire." />
         <meta property="og:url" content="https://www.horizonspatial.ci/contact" />
         <meta property="og:image" content="https://www.horizonspatial.ci/logo.jpg" />
         <link rel="canonical" href="https://www.horizonspatial.ci/contact" />

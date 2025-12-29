@@ -145,11 +145,11 @@ export default function Projets() {
     <PageTransition>
     <div className="bg-background text-foreground">
       <Helmet>
-        <title>Projets & Études de Cas — Horizon Spatial</title>
-        <meta name="description" content="Découvrez nos études de cas détaillées : plans d'urbanisme, lotissements, SIG foncier et développement rural en Côte d'Ivoire. Contexte, défis, solutions et résultats."
+        <title>Projets Urbanisme & Lotissements Côte d'Ivoire | Études de Cas — Horizon Spatial</title>
+        <meta name="description" content="Réalisations en urbanisme Côte d'Ivoire : lotissements approuvés, plans d'urbanisme (PUD), SIG foncier, régularisation foncière. Cabinet d'urbanisme agréé Abidjan."
         />
-        <meta property="og:title" content="Nos Projets — Horizon Spatial" />
-        <meta property="og:description" content="Une vitrine de notre savoir-faire en intelligence territoriale, illustrant l&apos;impact de nos interventions sur des projets concrets."
+        <meta property="og:title" content="Projets Urbanisme & Lotissements Côte d'Ivoire | Études de Cas" />
+        <meta property="og:description" content="Réalisations en urbanisme Côte d'Ivoire : lotissements approuvés, plans d'urbanisme (PUD), SIG foncier, régularisation foncière."
         />
         <meta property="og:url" content="https://www.horizonspatial.ci/projets" />
         <meta property="og:image" content="https://www.horizonspatial.ci/logo.jpg" />
