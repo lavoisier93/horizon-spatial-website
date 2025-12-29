@@ -1,1 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"><url><loc>https://www.horizon-spatial.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url><url><loc>https://www.horizon-spatial.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url><url><loc>https://www.horizon-spatial.com/solutions</loc><changefreq>monthly</changefreq><priority>0.8</priority></url><url><loc>https://www.horizon-spatial.com/expertise</loc><changefreq>monthly</changefreq><priority>0.8</priority></url><url><loc>https://www.horizon-spatial.com/projets</loc><changefreq>monthly</changefreq><priority>0.8</priority></url><url><loc>https://www.horizon-spatial.com/contact</loc><changefreq>monthly</changefreq><priority>0.5</priority></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://www.horizonspatial.ci/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.horizonspatial.ci/expertise</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.horizonspatial.ci/solutions</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.horizonspatial.ci/projets</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.horizonspatial.ci/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.horizonspatial.ci/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.horizonspatial.ci/mentions-legales</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.horizonspatial.ci/politique-confidentialite</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

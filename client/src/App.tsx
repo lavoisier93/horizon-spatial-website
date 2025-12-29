@@ -11,6 +11,8 @@ import Expertise from "./pages/Expertise";
 import Solutions from "./pages/Solutions";
 import Projets from "./pages/Projets";
 import About from "./pages/About";
+import MentionsLegales from "./pages/MentionsLegales";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 
 
 function Router() {
@@ -22,6 +24,8 @@ function Router() {
       <Route path={"/solutions"} component={Solutions} />
       <Route path={"/projets"} component={Projets} />
       <Route path={"/about"} component={About} />
+      <Route path={"/mentions-legales"} component={MentionsLegales} />
+      <Route path={"/politique-confidentialite"} component={PolitiqueConfidentialite} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

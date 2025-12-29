@@ -13,9 +13,9 @@ export default function About() {
         <meta name="description" content="Découvrez notre vision, notre mission et l’équipe pluridisciplinaire d’Horizon Spatial, bureau d’études de nouvelle génération." />
         <meta property="og:title" content="Horizon Spatial — À propos" />
         <meta property="og:description" content="Urbanisme réglementaire, géomatique et technologie au service des territoires africains." />
-        <meta property="og:url" content="https://www.horizon-spatial.com/a-propos" />
-        <meta property="og:image" content="https://www.horizon-spatial.com/logo.jpg" />
-        <link rel="canonical" href="https://www.horizon-spatial.com/a-propos" />
+        <meta property="og:url" content="https://www.horizonspatial.ci/about" />
+        <meta property="og:image" content="https://www.horizonspatial.ci/logo.jpg" />
+        <link rel="canonical" href="https://www.horizonspatial.ci/about" />
       </Helmet>
       <Navigation />
       

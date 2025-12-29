@@ -50,9 +50,9 @@ export default function Contact() {
         />
         <meta property="og:title" content="Contact — Horizon Spatial" />
         <meta property="og:description" content="Prêt à transformer votre territoire ? Contactez notre équipe d'experts." />
-        <meta property="og:url" content="https://www.horizon-spatial.com/contact" />
-        <meta property="og:image" content="https://www.horizon-spatial.com/logo.jpg" />
-        <link rel="canonical" href="https://www.horizon-spatial.com/contact" />
+        <meta property="og:url" content="https://www.horizonspatial.ci/contact" />
+        <meta property="og:image" content="https://www.horizonspatial.ci/logo.jpg" />
+        <link rel="canonical" href="https://www.horizonspatial.ci/contact" />
       </Helmet>
       <Navigation />
       
@@ -175,6 +175,8 @@ export default function Contact() {
           </form>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

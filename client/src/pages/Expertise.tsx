@@ -15,9 +15,9 @@ export default function Expertise() {
         <meta property="og:title" content="Expertise — Horizon Spatial" />
         <meta property="og:description" content="L&apos;alliance de la planification urbaine et de l&apos;intelligence géospatiale pour des projets durables."
         />
-        <meta property="og:url" content="https://www.horizon-spatial.com/expertise" />
-        <meta property="og:image" content="https://www.horizon-spatial.com/logo.jpg" />
-        <link rel="canonical" href="https://www.horizon-spatial.com/expertise" />
+        <meta property="og:url" content="https://www.horizonspatial.ci/expertise" />
+        <meta property="og:image" content="https://www.horizonspatial.ci/logo.jpg" />
+        <link rel="canonical" href="https://www.horizonspatial.ci/expertise" />
       </Helmet>
       <Navigation />
       

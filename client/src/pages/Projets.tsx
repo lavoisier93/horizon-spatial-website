@@ -92,9 +92,9 @@ export default function Projets() {
         <meta property="og:title" content="Nos Projets — Horizon Spatial" />
         <meta property="og:description" content="Une vitrine de notre savoir-faire en intelligence territoriale, illustrant l&apos;impact de nos interventions sur des projets concrets."
         />
-        <meta property="og:url" content="https://www.horizon-spatial.com/projets" />
-        <meta property="og:image" content="https://www.horizon-spatial.com/logo.jpg" />
-        <link rel="canonical" href="https://www.horizon-spatial.com/projets" />
+        <meta property="og:url" content="https://www.horizonspatial.ci/projets" />
+        <meta property="og:image" content="https://www.horizonspatial.ci/logo.jpg" />
+        <link rel="canonical" href="https://www.horizonspatial.ci/projets" />
       </Helmet>
       <Navigation />
       

@@ -15,9 +15,9 @@ export default function Solutions() {
         <meta property="og:title" content="Solutions — Horizon Spatial" />
         <meta property="og:description" content="Solutions intégrées pour l&apos;aménagement du territoire, de la planification stratégique au déploiement d&apos;outils géospatiaux avancés."
         />
-        <meta property="og:url" content="https://www.horizon-spatial.com/solutions" />
-        <meta property="og:image" content="https://www.horizon-spatial.com/logo.jpg" />
-        <link rel="canonical" href="https://www.horizon-spatial.com/solutions" />
+        <meta property="og:url" content="https://www.horizonspatial.ci/solutions" />
+        <meta property="og:image" content="https://www.horizonspatial.ci/logo.jpg" />
+        <link rel="canonical" href="https://www.horizonspatial.ci/solutions" />
       </Helmet>
       <Navigation />
       

@@ -98,8 +98,12 @@ export default function Footer() {
             © 2025 Horizon Spatial. Tous droits réservés.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors">Mentions Légales</a>
-            <a href="#" className="hover:text-primary transition-colors">Politique de Confidentialité</a>
+            <Link href="/mentions-legales">
+              <span className="hover:text-primary transition-colors cursor-pointer">Mentions Légales</span>
+            </Link>
+            <Link href="/politique-confidentialite">
+              <span className="hover:text-primary transition-colors cursor-pointer">Politique de Confidentialité</span>
+            </Link>
           </div>
         </div>
       </div>

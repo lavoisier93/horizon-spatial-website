@@ -13,9 +13,9 @@ export default function Home() {
         <meta name="description" content="Horizon Spatial est un bureau d’études spécialisé en géomatique, urbanisme et développement territorial en Côte d’Ivoire." />
         <meta property="og:title" content="Horizon Spatial — Accueil" />
         <meta property="og:description" content="Solutions géospatiales pour l’aménagement durable des territoires en Afrique." />
-        <meta property="og:url" content="https://www.horizon-spatial.com/" />
-        <meta property="og:image" content="https://www.horizon-spatial.com/logo.jpg" />
-        <link rel="canonical" href="https://www.horizon-spatial.com/" />
+        <meta property="og:url" content="https://www.horizonspatial.ci/" />
+        <meta property="og:image" content="https://www.horizonspatial.ci/logo.jpg" />
+        <link rel="canonical" href="https://www.horizonspatial.ci/" />
       </Helmet>
       <Navigation />
       <main className="isolate">
