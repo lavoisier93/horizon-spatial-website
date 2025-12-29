@@ -141,7 +141,7 @@ export default function Expertise() {
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-muted group sticky top-32">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay z-10" />
                 <img 
-                  src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2070&auto=format&fit=crop" 
+                  src="/images/expertise-urbanisme.webp" 
                   alt="Urbanisme et Planification"
                   loading="lazy"
                   width={800}
@@ -228,7 +228,7 @@ export default function Expertise() {
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-muted group sticky top-32">
                 <div className="absolute inset-0 bg-gradient-to-bl from-secondary/20 to-transparent mix-blend-overlay z-10" />
                 <img 
-                  src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=2069&auto=format&fit=crop" 
+                  src="/images/expertise-geomatique.webp" 
                   alt="Géomatique et SIG"
                   loading="lazy"
                   width={800}

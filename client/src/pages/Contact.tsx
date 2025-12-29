@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Mail, Phone, Clock, Loader2, ExternalLink } from "lucide-react";
+import { MapPin, Mail, Phone, Clock, Loader2, ExternalLink, Linkedin } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useState, useRef } from "react";
@@ -11,7 +11,17 @@ import { Helmet } from "react-helmet-async";
 import PageTransition from "@/components/PageTransition";
 import { SimpleMap } from "@/components/LeafletMap";
 
-// Coordonnées du siège - Cocody, Abidjan (basé sur le repère Google Maps fourni)
+// Coordonnées officielles de l'entreprise
+const CONTACT_INFO = {
+  address: "Abidjan, Côte d'Ivoire",
+  email: "contact@horizonspatial.ci",
+  emailCommercial: "commercial@horizonspatial.ci",
+  phone: "+225 07 89 89 10 01",
+  hours: "Lundi - Vendredi : 08h00 - 18h00",
+  linkedin: "https://www.linkedin.com/company/horizon-spatial"
+};
+
+// Coordonnées du siège - Abidjan
 const OFFICE_LOCATION: [number, number] = [5.3480, -3.9740];
 
 export default function Contact() {
@@ -89,19 +99,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground">Siège Social</h4>
-                  <p className="text-muted-foreground">Abidjan, Plateau<br />Côte d&apos;Ivoire</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-foreground">Email</h4>
-                  <a href="mailto:contact@horizonspatial.ci" className="text-muted-foreground hover:text-primary transition-colors">
-                    contact@horizonspatial.ci
-                  </a>
+                  <p className="text-muted-foreground">{CONTACT_INFO.address}</p>
                 </div>
               </div>
 
@@ -111,7 +109,24 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground">Téléphone</h4>
-                  <p className="text-muted-foreground">+225 07 07 00 00 00</p>
+                  <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`} className="text-muted-foreground hover:text-primary transition-colors">
+                    {CONTACT_INFO.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                  <Mail size={20} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-foreground">Email</h4>
+                  <a href={`mailto:${CONTACT_INFO.email}`} className="text-muted-foreground hover:text-primary transition-colors block">
+                    {CONTACT_INFO.email}
+                  </a>
+                  <a href={`mailto:${CONTACT_INFO.emailCommercial}`} className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                    {CONTACT_INFO.emailCommercial}
+                  </a>
                 </div>
               </div>
 
@@ -121,7 +136,24 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-foreground">Horaires</h4>
-                  <p className="text-muted-foreground">Lundi - Vendredi : 08h00 - 18h00</p>
+                  <p className="text-muted-foreground">{CONTACT_INFO.hours}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-[#0A66C2]/10 flex items-center justify-center text-[#0A66C2] shrink-0">
+                  <Linkedin size={20} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-foreground">LinkedIn</h4>
+                  <a 
+                    href={CONTACT_INFO.linkedin} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-[#0A66C2] transition-colors"
+                  >
+                    Suivez-nous sur LinkedIn
+                  </a>
                 </div>
               </div>
             </div>
@@ -136,8 +168,9 @@ export default function Contact() {
               markerTitle="Horizon Spatial"
               markerContent={
                 <div className="text-xs mt-1">
-                  <p>Bureau d'études en Urbanisme & Géomatique</p>
-                  <p className="mt-1">📍 Cocody, Abidjan</p>
+                  <p>Bureau d&apos;études en Urbanisme & Géomatique</p>
+                  <p className="mt-1">📍 Abidjan, Côte d&apos;Ivoire</p>
+                  <p className="mt-1">📞 {CONTACT_INFO.phone}</p>
                 </div>
               }
               height="240px"
@@ -157,7 +190,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Form */}
-        <div className="bg-card p-8 rounded-2xl border border-border shadow-sm">
+        <div className="lg:col-span-2 bg-card p-8 rounded-2xl border border-border shadow-sm">
           <h3 className="font-heading font-bold text-2xl mb-6">Envoyez-nous un message</h3>
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -171,9 +204,15 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-medium">Email</label>
-              <Input id="email" name="email" type="email" placeholder="votre@email.com" required />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-medium">Email</label>
+                <Input id="email" name="email" type="email" placeholder="votre@email.com" required />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="phone" className="text-sm font-medium">Téléphone (optionnel)</label>
+                <Input id="phone" name="phone" type="tel" placeholder="+225 XX XX XX XX XX" />
+              </div>
             </div>
 
             <div className="space-y-2">

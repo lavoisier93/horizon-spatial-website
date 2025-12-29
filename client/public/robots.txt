@@ -1,4 +1,13 @@
+# Horizon Spatial - robots.txt
+# https://www.horizonspatial.ci
+
 User-agent: *
 Allow: /
 
-Sitemap: https://www.horizon-spatial.com/sitemap.xml
+# Sitemap
+Sitemap: https://www.horizonspatial.ci/sitemap.xml
+
+# Disallow admin and private paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
