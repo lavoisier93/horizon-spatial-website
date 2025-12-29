@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location] = useLocation();
+  const { theme, toggleTheme, switchable } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,6 +84,22 @@ export default function Navigation() {
               </span>
             </Link>
           ))}
+          
+          {/* Dark Mode Toggle */}
+          {switchable && (
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-muted transition-colors text-foreground/70 hover:text-foreground"
+              aria-label={theme === "dark" ? "Activer le mode clair" : "Activer le mode sombre"}
+            >
+              {theme === "dark" ? (
+                <Sun size={20} className="transition-transform hover:rotate-12" />
+              ) : (
+                <Moon size={20} className="transition-transform hover:-rotate-12" />
+              )}
+            </button>
+          )}
+          
           <Link href="/contact">
             <Button className="font-heading font-semibold rounded-full px-6 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-0.5">
               Contactez-nous
@@ -113,6 +131,27 @@ export default function Navigation() {
               </span>
             </Link>
           ))}
+          
+          {/* Dark Mode Toggle - Mobile */}
+          {switchable && (
+            <button
+              onClick={toggleTheme}
+              className="flex items-center gap-3 py-2 text-lg font-medium hover:text-primary"
+            >
+              {theme === "dark" ? (
+                <>
+                  <Sun size={20} />
+                  <span>Mode clair</span>
+                </>
+              ) : (
+                <>
+                  <Moon size={20} />
+                  <span>Mode sombre</span>
+                </>
+              )}
+            </button>
+          )}
+          
           <Link href="/contact">
             <Button className="w-full mt-2" onClick={() => setIsMobileMenuOpen(false)}>
               Contactez-nous

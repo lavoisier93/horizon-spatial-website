@@ -1,14 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin, Calendar } from "lucide-react";
+import { MapPin, Calendar, Navigation2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
-import { MapView } from "@/components/Map";
-import { useRef } from "react";
+import { useState, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
+import PageTransition from "@/components/PageTransition";
+import { ProjectsMap } from "@/components/LeafletMap";
+
+// Couleurs par catégorie de projet
+const CATEGORY_COLORS: Record<string, string> = {
+  "Urbanisme Réglementaire": "#0047AB",
+  "Développement Rural": "#00A86B",
+  "Promotion Immobilière": "#E67E22",
+  "SIG & Cartographie": "#9B59B6",
+};
 
 export default function Projets() {
-  const mapRef = useRef<google.maps.Map | null>(null);
+  const [activeProject, setActiveProject] = useState<number | null>(null);
 
   const projects = [
     {
@@ -53,37 +62,15 @@ export default function Projets() {
     }
   ];
 
-  const handleMapReady = (map: google.maps.Map) => {
-    mapRef.current = map;
-    
-    // Add markers for each project
-    projects.forEach((project) => {
-      const marker = new google.maps.marker.AdvancedMarkerElement({
-        map,
-        position: project.coordinates,
-        title: project.title,
-      });
-      
-      // Optional: Add info window on click
-      const infoWindow = new google.maps.InfoWindow({
-        content: `
-          <div style="padding: 8px;">
-            <h3 style="font-weight: bold; margin-bottom: 4px;">${project.title}</h3>
-            <p style="font-size: 12px; color: #666;">${project.category}</p>
-          </div>
-        `
-      });
-
-      marker.addListener("click", () => {
-        infoWindow.open({
-          anchor: marker,
-          map,
-        });
-      });
-    });
-  };
+  // Fonction pour naviguer vers un projet sur la carte
+  const flyToProject = useCallback((index: number) => {
+    setActiveProject(index);
+    // Scroll vers la carte
+    window.scrollTo({ top: 300, behavior: 'smooth' });
+  }, []);
 
   return (
+    <PageTransition>
     <div className="bg-background text-foreground">
       <Helmet>
         <title>Projets — Horizon Spatial</title>
@@ -118,15 +105,53 @@ export default function Projets() {
       <section className="py-12 bg-background">
         <div className="container">
           <div className="rounded-3xl overflow-hidden border border-border shadow-xl h-[500px] relative">
-            <MapView 
-              initialCenter={{ lat: 7.54, lng: -5.55 }} // Center of Côte d'Ivoire
-              initialZoom={7}
-              onMapReady={handleMapReady}
-              className="w-full h-full"
+            <ProjectsMap
+              projects={projects}
+              categoryColors={CATEGORY_COLORS}
+              activeProject={activeProject}
+              onProjectClick={(index) => setActiveProject(index)}
             />
-            <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg max-w-xs z-10 border border-border/50">
-              <h3 className="font-heading font-bold text-lg mb-1">Nos Projets en Côte d'Ivoire</h3>
-              <p className="text-xs text-muted-foreground">Explorez nos interventions à travers le territoire national.</p>
+            
+            {/* Légende */}
+            <div className="absolute top-4 left-4 bg-background/95 backdrop-blur-md p-4 rounded-xl shadow-lg z-[1000] border border-border">
+              <h3 className="font-heading font-bold text-lg mb-3 text-foreground">Nos Projets en Côte d'Ivoire</h3>
+              <div className="space-y-2">
+                {Object.entries(CATEGORY_COLORS).map(([category, color]) => (
+                  <div key={category} className="flex items-center gap-2">
+                    <div 
+                      className="w-3 h-3 rounded-full shrink-0" 
+                      style={{ backgroundColor: color }}
+                    />
+                    <span className="text-xs text-muted-foreground">{category}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Liste des projets cliquables */}
+            <div className="absolute top-4 right-4 bg-background/95 backdrop-blur-md p-3 rounded-xl shadow-lg z-[1000] border border-border max-w-[200px]">
+              <p className="text-xs font-medium text-muted-foreground mb-2">Aller au projet :</p>
+              <div className="space-y-1">
+                {projects.map((project, index) => (
+                  <button
+                    key={index}
+                    onClick={() => flyToProject(index)}
+                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-all flex items-center gap-2 ${
+                      activeProject === index 
+                        ? 'bg-primary text-primary-foreground' 
+                        : 'hover:bg-muted text-foreground'
+                    }`}
+                  >
+                    <span 
+                      className="w-5 h-5 rounded-full flex items-center justify-center text-white text-[10px] shrink-0"
+                      style={{ backgroundColor: CATEGORY_COLORS[project.category] }}
+                    >
+                      {index + 1}
+                    </span>
+                    <span className="truncate">{project.title.split(' ').slice(0, 2).join(' ')}...</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -143,7 +168,10 @@ export default function Projets() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                     <img 
                       src={project.image} 
-                      alt={project.title} 
+                      alt={project.title}
+                      loading="lazy"
+                      width={800}
+                      height={500}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 translate-y-4 group-hover:translate-y-0">
@@ -164,7 +192,7 @@ export default function Projets() {
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2 mb-8">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag, i) => (
                       <span key={i} className="px-3 py-1 rounded-full bg-muted text-xs font-medium text-foreground/70 border border-border">
                         #{tag}
@@ -172,9 +200,16 @@ export default function Projets() {
                     ))}
                   </div>
                   
-                  <Button variant="outline" className="rounded-full px-6 group">
-                    Voir les détails <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
+                  <button
+                    onClick={() => {
+                      flyToProject(index);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                  >
+                    <Navigation2 size={16} />
+                    Voir sur la carte
+                  </button>
                 </div>
               </div>
             ))}
@@ -228,5 +263,6 @@ export default function Projets() {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 }

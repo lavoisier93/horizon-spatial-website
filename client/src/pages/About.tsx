@@ -4,9 +4,11 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
+import PageTransition from "@/components/PageTransition";
 
 export default function About() {
   return (
+    <PageTransition>
     <div className="min-h-screen bg-background font-sans">
       <Helmet>
         <title>Horizon Spatial — À propos</title>
@@ -69,15 +71,18 @@ export default function About() {
             <div className="relative">
               <div className="aspect-square rounded-full overflow-hidden border-8 border-background shadow-2xl max-w-md mx-auto relative group">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D4E03AQFHCcvtY87wFQ/profile-displayphoto-scale_400_400/B4EZqECF01KcAk-/0/1763151733801?e=1765411200&v=beta&t=hswoEAgTvAsRL6TJTvdm1aTcuhuF9_9cnXzg9PBy19M" 
-                  alt="Lavoisier Ousmane" 
+                  src="/team/lavoisier-ousmane2.jpeg" 
+                  alt="Lavoisier Ousmane - Fondateur d'Horizon Spatial"
+                  loading="lazy"
+                  width={400}
+                  height={400}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               
               {/* Decorative Elements */}
-              <div className="absolute top-10 right-10 w-20 h-20 bg-primary/20 rounded-full blur-2xl animate-pulse" />
-              <div className="absolute bottom-10 left-10 w-32 h-32 bg-secondary/20 rounded-full blur-3xl animate-pulse delay-700" />
+              <div className="absolute top-10 right-10 w-20 h-20 bg-primary/20 rounded-full blur-2xl animate-float" />
+              <div className="absolute bottom-10 left-10 w-32 h-32 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
             </div>
             
             <div>
@@ -113,35 +118,36 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team & Values */}
+      {/* Expertise Pillars */}
       <section className="py-24">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">Une Équipe Pluridisciplinaire</h2>
+            <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">Nos Piliers d&apos;Expertise</h2>
             <p className="text-muted-foreground text-lg">
-              L&apos;équipe H-Spatial réunit des compétences complémentaires pour couvrir l&apos;ensemble des métiers de l&apos;aménagement.
+              Une approche pluridisciplinaire pour répondre à tous les défis de l&apos;aménagement territorial.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
+                icon: "📐",
                 title: "Urbanisme & Planification",
-                desc: "Élaboration de documents réglementaires et conception de projets urbains."
+                desc: "Documents réglementaires (SDU, PUD), études de faisabilité et conception de projets urbains."
               },
               {
+                icon: "🗺️",
                 title: "Géomatique & Data",
-                desc: "Développement SIG, gestion de bases de données et analyse spatiale."
+                desc: "Solutions SIG, bases de données spatiales (PostGIS), cartographie et analyse territoriale."
               },
               {
-                title: "Technologie & Innovation",
-                desc: "Développement d&apos;outils, automatisation et intégration de solutions."
+                icon: "💡",
+                title: "Innovation & Outils",
+                desc: "Développement d&apos;applications métier, automatisation et intégration de technologies modernes."
               }
             ].map((item, i) => (
-              <div key={i} className="bg-card p-8 rounded-2xl border border-border text-center hover:border-primary transition-colors group">
-                <div className="w-12 h-12 rounded-full bg-muted mx-auto mb-6 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                  <span className="font-heading font-bold text-lg">{i + 1}</span>
-                </div>
+              <div key={i} className="bg-card p-8 rounded-2xl border border-border text-center hover:border-primary hover:shadow-lg transition-all group">
+                <div className="text-4xl mb-6">{item.icon}</div>
                 <h3 className="font-heading font-bold text-xl mb-3">{item.title}</h3>
                 <p className="text-muted-foreground">
                   {item.desc}
@@ -153,15 +159,15 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-background border-t border-border">
+      <section className="py-20 bg-primary text-primary-foreground">
         <div className="container text-center max-w-3xl mx-auto">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-6">Rejoignez l&apos;aventure</h2>
-          <p className="text-muted-foreground text-lg mb-10">
-            Nous sommes toujours à la recherche de talents passionnés par la ville et la technologie.
+          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-6">Travaillons ensemble</h2>
+          <p className="text-primary-foreground/80 text-lg mb-10">
+            Vous avez un projet d&apos;aménagement ou besoin d&apos;expertise géospatiale ? Discutons de vos besoins.
           </p>
           <Link href="/contact">
-            <Button size="lg" variant="outline" className="rounded-full px-10 h-14 text-lg font-heading font-bold">
-              Contactez-nous <ArrowRight className="ml-2 h-5 w-5" />
+            <Button size="lg" variant="secondary" className="rounded-full px-10 h-14 text-lg font-heading font-bold shadow-xl hover:scale-105 transition-transform">
+              Démarrer un projet <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
         </div>
@@ -169,5 +175,6 @@ export default function About() {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 }

@@ -1,9 +1,11 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import PageTransition from "@/components/PageTransition";
 
 export default function PolitiqueConfidentialite() {
   return (
+    <PageTransition>
     <div className="min-h-screen bg-background font-sans">
       <Helmet>
         <title>Politique de Confidentialité — Horizon Spatial</title>
@@ -138,6 +140,7 @@ export default function PolitiqueConfidentialite() {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 }
 

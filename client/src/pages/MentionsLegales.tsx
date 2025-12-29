@@ -1,9 +1,11 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import PageTransition from "@/components/PageTransition";
 
 export default function MentionsLegales() {
   return (
+    <PageTransition>
     <div className="min-h-screen bg-background font-sans">
       <Helmet>
         <title>Mentions Légales — Horizon Spatial</title>
@@ -80,6 +82,7 @@ export default function MentionsLegales() {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 }
 

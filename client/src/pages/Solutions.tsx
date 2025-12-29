@@ -4,9 +4,11 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
+import PageTransition from "@/components/PageTransition";
 
 export default function Solutions() {
   return (
+    <PageTransition>
     <div className="bg-background text-foreground">
       <Helmet>
         <title>Solutions — Horizon Spatial</title>
@@ -191,5 +193,6 @@ export default function Solutions() {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 }

@@ -1,13 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Mail, Phone, Clock, Loader2 } from "lucide-react";
+import { MapPin, Mail, Phone, Clock, Loader2, ExternalLink } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
 import { Helmet } from "react-helmet-async";
+import PageTransition from "@/components/PageTransition";
+import { SimpleMap } from "@/components/LeafletMap";
+
+// Coordonnées du siège - Cocody, Abidjan (basé sur le repère Google Maps fourni)
+const OFFICE_LOCATION: [number, number] = [5.3480, -3.9740];
 
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -43,6 +48,7 @@ export default function Contact() {
   };
 
   return (
+    <PageTransition>
     <div className="bg-background text-foreground">
       <Helmet>
         <title>Contact — Horizon Spatial</title>
@@ -121,15 +127,33 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Map Placeholder */}
-          <div className="h-64 bg-muted rounded-2xl overflow-hidden relative border border-border">
-            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-              <span className="flex items-center gap-2">
-                <MapPin size={16} /> Carte Interactive (Google Maps)
-              </span>
-            </div>
-            {/* In a real implementation, embed Google Maps here */}
+          {/* Interactive Map */}
+          <div className="rounded-2xl overflow-hidden border border-border shadow-md">
+            <SimpleMap
+              center={OFFICE_LOCATION}
+              zoom={16}
+              markerPosition={OFFICE_LOCATION}
+              markerTitle="Horizon Spatial"
+              markerContent={
+                <div className="text-xs mt-1">
+                  <p>Bureau d'études en Urbanisme & Géomatique</p>
+                  <p className="mt-1">📍 Cocody, Abidjan</p>
+                </div>
+              }
+              height="240px"
+            />
           </div>
+          
+          {/* Open in Google Maps Button */}
+          <a 
+            href="https://maps.app.goo.gl/7CaVngftHQ8KvopM9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-muted hover:bg-muted/80 text-sm font-medium text-foreground transition-colors border border-border"
+          >
+            <ExternalLink size={16} />
+            Ouvrir dans Google Maps
+          </a>
         </div>
 
         {/* Contact Form */}
@@ -178,5 +202,6 @@ export default function Contact() {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 }

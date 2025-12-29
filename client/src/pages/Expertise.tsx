@@ -4,9 +4,11 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
+import PageTransition from "@/components/PageTransition";
 
 export default function Expertise() {
   return (
+    <PageTransition>
     <div className="bg-background text-foreground">
       <Helmet>
         <title>Expertise — Horizon Spatial</title>
@@ -46,7 +48,10 @@ export default function Expertise() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay z-10" />
                 <img 
                   src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Urbanisme et Planification" 
+                  alt="Urbanisme et Planification"
+                  loading="lazy"
+                  width={800}
+                  height={600}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -142,7 +147,10 @@ export default function Expertise() {
                 <div className="absolute inset-0 bg-gradient-to-bl from-secondary/20 to-transparent mix-blend-overlay z-10" />
                 <img 
                   src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=2069&auto=format&fit=crop" 
-                  alt="Géomatique et SIG" 
+                  alt="Géomatique et SIG"
+                  loading="lazy"
+                  width={800}
+                  height={600}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -189,5 +197,6 @@ export default function Expertise() {
       </section>
       <Footer />
     </div>
+    </PageTransition>
   );
 }
