@@ -24,15 +24,12 @@ export default function About() {
       {/* Header Section */}
       <section className="pt-32 pb-20 bg-muted/30">
         <div className="container text-center max-w-4xl mx-auto">
-          <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">Notre Histoire</span>
+          <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">Cabinet d&apos;Urbanisme Agréé Abidjan</span>
           <h1 className="font-heading font-bold text-4xl md:text-6xl mb-6 leading-tight">
-            Un bureau d&apos;études de <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              nouvelle génération
-            </span>
+            Votre <span className="text-primary">Urbaniste Agréé</span> en Côte d&apos;Ivoire
           </h1>
-          <p className="text-muted-foreground text-xl leading-relaxed max-w-2xl mx-auto">
-            Fondé sur la conviction que l&apos;avenir de l&apos;Afrique passe par une urbanisation maîtrisée et intelligente.
+          <p className="text-muted-foreground text-xl leading-relaxed max-w-3xl mx-auto">
+            <strong>Horizon Spatial</strong> est un <strong>cabinet d&apos;urbanisme agréé à Abidjan</strong>, fondé par <strong>Lavoisier Ousmane</strong>, urbaniste agréé membre de l&apos;O.N.U.C.I. Nous accompagnons vos projets de <strong>lotissement</strong>, <strong>demande d&apos;ACD</strong> et <strong>SIG foncier</strong> en Côte d&apos;Ivoire.
           </p>
         </div>
       </section>
@@ -72,7 +69,7 @@ export default function About() {
               <div className="aspect-square rounded-full overflow-hidden border-8 border-background shadow-2xl max-w-md mx-auto relative group">
                 <img 
                   src="/team/lavoisier-ousmane2.jpeg" 
-                  alt="Lavoisier Ousmane - Fondateur d'Horizon Spatial"
+                  alt="Lavoisier Ousmane - Urbaniste agréé Abidjan, Fondateur d'Horizon Spatial, cabinet d'urbanisme Côte d'Ivoire"
                   loading="lazy"
                   width={400}
                   height={400}
@@ -161,15 +158,22 @@ export default function About() {
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container text-center max-w-3xl mx-auto">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-6">Travaillons ensemble</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-6">Besoin d&apos;un Plan de Lotissement ou d&apos;une Demande d&apos;ACD ?</h2>
           <p className="text-primary-foreground/80 text-lg mb-10">
-            Vous avez un projet d&apos;aménagement ou besoin d&apos;expertise géospatiale ? Discutons de vos besoins.
+            Notre <strong>cabinet d&apos;urbanisme agréé à Abidjan</strong> vous accompagne dans tous vos projets : <strong>approbation de lotissement</strong>, <strong>régularisation foncière</strong>, <strong>SIG foncier</strong> et <strong>restructuration urbaine</strong>.
           </p>
-          <Link href="/contact">
-            <Button size="lg" variant="secondary" className="rounded-full px-10 h-14 text-lg font-heading font-bold shadow-xl hover:scale-105 transition-transform">
-              Démarrer un projet <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/contact">
+              <Button size="lg" variant="secondary" className="rounded-full px-10 h-14 text-lg font-heading font-bold shadow-xl hover:scale-105 transition-transform">
+                Demander un devis gratuit <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="/urbanisme-cote-ivoire">
+              <Button size="lg" variant="outline" className="rounded-full px-10 h-14 text-lg font-heading font-bold border-2 border-white/30 text-white hover:bg-white/10">
+                Guide Lotissement CI
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 

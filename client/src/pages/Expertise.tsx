@@ -120,16 +120,25 @@ export default function Expertise() {
       {/* Header Section */}
       <section className="pt-32 pb-20 bg-muted/30">
         <div className="container text-center max-w-4xl mx-auto">
-          <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">Nos Domaines d&apos;Intervention</span>
+          <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">Cabinet d&apos;Urbanisme Agréé Abidjan</span>
           <h1 className="font-heading font-bold text-4xl md:text-6xl mb-6 leading-tight">
-            Une double expertise unique en <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              Urbanisme & Géomatique
-            </span>
+            Expertise en <span className="text-primary">Urbanisme</span> et <span className="text-secondary">Géomatique</span> en Côte d&apos;Ivoire
           </h1>
-          <p className="text-muted-foreground text-xl leading-relaxed max-w-2xl mx-auto">
-            Nous combinons la planification territoriale traditionnelle avec les technologies géospatiales les plus avancées pour offrir des solutions complètes et innovantes.
+          <p className="text-muted-foreground text-xl leading-relaxed max-w-3xl mx-auto">
+            En tant qu&apos;<strong>urbaniste agréé</strong>, nous accompagnons vos projets de <strong>plan de lotissement</strong>, <strong>demande d&apos;ACD</strong>, <strong>approbation de lotissement</strong> et <strong>SIG foncier</strong>. Notre double expertise combine planification territoriale et technologies géospatiales avancées.
           </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link href="/urbanisme-cote-ivoire">
+              <Button variant="outline" className="rounded-full">
+                Guide Lotissement CI
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button className="rounded-full">
+                Demander un devis
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -142,7 +151,7 @@ export default function Expertise() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay z-10" />
                 <img 
                   src="/images/expertise-urbanisme.webp" 
-                  alt="Urbanisme et Planification"
+                  alt="Plan de lotissement et urbanisme réglementaire en Côte d'Ivoire - Cabinet d'urbanisme agréé Abidjan"
                   loading="lazy"
                   width={800}
                   height={600}
@@ -229,7 +238,7 @@ export default function Expertise() {
                 <div className="absolute inset-0 bg-gradient-to-bl from-secondary/20 to-transparent mix-blend-overlay z-10" />
                 <img 
                   src="/images/expertise-geomatique.webp" 
-                  alt="Géomatique et SIG"
+                  alt="SIG foncier et cartographie - Systèmes d'Information Géographique Côte d'Ivoire"
                   loading="lazy"
                   width={800}
                   height={600}
@@ -277,15 +286,22 @@ export default function Expertise() {
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container text-center max-w-3xl mx-auto">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-6">Besoin d&apos;une expertise technique ?</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-6">Besoin d&apos;un Plan de Lotissement ou d&apos;une Demande d&apos;ACD ?</h2>
           <p className="text-primary-foreground/80 text-lg mb-10">
-            Que ce soit pour un plan d&apos;urbanisme, un lotissement ou une solution SIG complexe, notre équipe est prête à relever le défi.
+            Notre <strong>cabinet d&apos;urbanisme agréé à Abidjan</strong> vous accompagne dans toutes vos démarches : <strong>approbation de lotissement</strong>, <strong>convention de lotissement</strong>, <strong>régularisation foncière</strong> et solutions <strong>SIG foncier</strong>.
           </p>
-          <Link href="/contact">
-            <Button size="lg" variant="secondary" className="rounded-full px-10 h-14 text-lg font-heading font-bold">
-              Demander une consultation
-            </Button>
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/contact">
+              <Button size="lg" variant="secondary" className="rounded-full px-10 h-14 text-lg font-heading font-bold">
+                Demander un devis gratuit
+              </Button>
+            </Link>
+            <Link href="/projets">
+              <Button size="lg" variant="outline" className="rounded-full px-10 h-14 text-lg font-heading font-bold border-2 border-white/30 text-white hover:bg-white/10">
+                Voir nos réalisations
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 

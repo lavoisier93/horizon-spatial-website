@@ -160,16 +160,25 @@ export default function Projets() {
       {/* Header Section */}
       <section className="pt-32 pb-20 bg-muted/30">
         <div className="container text-center max-w-4xl mx-auto">
-          <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">Études de Cas</span>
+          <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">Réalisations en Urbanisme Côte d&apos;Ivoire</span>
           <h1 className="font-heading font-bold text-4xl md:text-6xl mb-6 leading-tight">
-            De la vision à la réalité :<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              l&apos;impact de notre expertise
-            </span>
+            Nos Projets de <span className="text-primary">Lotissement</span> et <span className="text-secondary">SIG Foncier</span>
           </h1>
           <p className="text-muted-foreground text-xl leading-relaxed max-w-3xl mx-auto">
-            Chaque projet est une histoire de collaboration et d&apos;innovation. Découvrez en détail comment nous avons accompagné nos partenaires pour transformer leurs défis en succès durables.
+            Découvrez nos réalisations en <strong>plan de lotissement</strong>, <strong>approbation de lotissement</strong>, <strong>SIG foncier</strong> et <strong>plans d&apos;urbanisme (PUD)</strong> en Côte d&apos;Ivoire. Chaque étude de cas illustre notre expertise de <strong>cabinet d&apos;urbanisme agréé à Abidjan</strong>.
           </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link href="/contact">
+              <Button className="rounded-full">
+                Discuter de votre projet
+              </Button>
+            </Link>
+            <Link href="/urbanisme-cote-ivoire">
+              <Button variant="outline" className="rounded-full">
+                Guide Lotissement CI
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
