@@ -1,29 +1,24 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Layers, Map, Database, Cpu, Globe, BarChart3 } from "lucide-react";
+import { ArrowRight, Layers, Map, Database, Cpu, Globe } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background font-sans selection:bg-primary/20 selection:text-primary">
+    <div className="min-h-screen bg-background font-sans">
+      <Helmet>
+        <title>Horizon Spatial — Accueil</title>
+        <meta name="description" content="Horizon Spatial est un bureau d’études spécialisé en géomatique, urbanisme et développement territorial en Côte d’Ivoire." />
+        <meta property="og:title" content="Horizon Spatial — Accueil" />
+        <meta property="og:description" content="Solutions géospatiales pour l’aménagement durable des territoires en Afrique." />
+        <meta property="og:url" content="https://www.horizon-spatial.com/" />
+        <meta property="og:image" content="https://www.horizon-spatial.com/logo.jpg" />
+        <link rel="canonical" href="https://www.horizon-spatial.com/" />
+      </Helmet>
       <Navigation />
-
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-primary/5 to-transparent" />
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-secondary/5 to-transparent" />
-          
-          {/* Abstract Topographic Lines */}
-          <svg className="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,500 Q200,400 400,500 T800,500 T1200,500 T1600,500" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary" />
-            <path d="M0,600 Q250,500 500,600 T1000,600 T1500,600" fill="none" stroke="currentColor" strokeWidth="2" className="text-secondary" />
-            <path d="M0,700 Q300,600 600,700 T1200,700" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary" />
-          </svg>
-        </div>
-
+      <main className="isolate">
         <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-in slide-in-from-left-10 duration-1000 fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
@@ -31,7 +26,7 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Intelligence Territoriale pour l'Afrique
+              Intelligence Territoriale pour l&apos;Afrique
             </div>
             
             <h1 className="font-heading font-bold text-5xl md:text-7xl leading-tight text-foreground">
@@ -109,7 +104,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </main>
 
       {/* Values Section */}
       <section className="py-24 bg-muted/30 relative">

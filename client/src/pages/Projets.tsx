@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin, Calendar, Building, CheckCircle2 } from "lucide-react";
+import { ArrowRight, MapPin, Calendar } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
 import { MapView } from "@/components/Map";
 import { useRef } from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function Projets() {
   const mapRef = useRef<google.maps.Map | null>(null);
@@ -83,7 +84,18 @@ export default function Projets() {
   };
 
   return (
-    <div className="min-h-screen bg-background font-sans">
+    <div className="bg-background text-foreground">
+      <Helmet>
+        <title>Projets — Horizon Spatial</title>
+        <meta name="description" content="Explorez nos projets et découvrez comment nous avons aidé nos clients à réaliser leur vision, de la planification urbaine à la mise en œuvre de solutions SIG."
+        />
+        <meta property="og:title" content="Nos Projets — Horizon Spatial" />
+        <meta property="og:description" content="Une vitrine de notre savoir-faire en intelligence territoriale, illustrant l&apos;impact de nos interventions sur des projets concrets."
+        />
+        <meta property="og:url" content="https://www.horizon-spatial.com/projets" />
+        <meta property="og:image" content="https://www.horizon-spatial.com/logo.jpg" />
+        <link rel="canonical" href="https://www.horizon-spatial.com/projets" />
+      </Helmet>
       <Navigation />
       
       {/* Header Section */}
@@ -91,13 +103,13 @@ export default function Projets() {
         <div className="container text-center max-w-4xl mx-auto">
           <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">Nos Réalisations</span>
           <h1 className="font-heading font-bold text-4xl md:text-6xl mb-6 leading-tight">
-            Des projets qui transforment <br />
+            De la vision à la réalité :<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              le territoire ivoirien
+              l&apos;impact de notre expertise
             </span>
           </h1>
-          <p className="text-muted-foreground text-xl leading-relaxed max-w-2xl mx-auto">
-            Découvrez comment nous accompagnons nos clients dans la concrétisation de leurs ambitions territoriales.
+          <p className="text-muted-foreground text-xl leading-relaxed max-w-3xl mx-auto">
+            Chaque projet est une histoire de collaboration et d'innovation. Découvrez comment nous avons accompagné nos partenaires pour transformer leurs défis en succès durables.
           </p>
         </div>
       </section>
@@ -176,7 +188,7 @@ export default function Projets() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">Ils nous font confiance</h2>
             <p className="text-muted-foreground text-lg">
-              Nous collaborons avec une diversité d'acteurs pour bâtir l'avenir.
+              Nous collaborons avec une diversité d&apos;acteurs pour bâtir l&apos;avenir.
             </p>
           </div>
 
@@ -188,8 +200,8 @@ export default function Projets() {
               "Bailleurs de Fonds (BM, BAD)",
               "ONG & Organisations",
               "Entreprises Privées",
-              "Cabinets d'Architecture",
-              "Bureaux d'Études Partenaires"
+              "Cabinets d&apos;Architecture",
+              "Bureaux d&apos;Études Partenaires"
             ].map((client, i) => (
               <div key={i} className="bg-background p-6 rounded-xl border border-border flex items-center justify-center text-center h-32 hover:border-primary/50 transition-colors group">
                 <span className="font-heading font-bold text-lg text-muted-foreground group-hover:text-primary transition-colors">{client}</span>
@@ -200,15 +212,15 @@ export default function Projets() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-background border-t border-border">
+      <section className="py-20 bg-primary text-primary-foreground">
         <div className="container text-center max-w-3xl mx-auto">
           <h2 className="font-heading font-bold text-3xl md:text-4xl mb-6">Vous avez un projet en tête ?</h2>
-          <p className="text-muted-foreground text-lg mb-10">
-            Parlons de vos ambitions et voyons comment notre expertise peut les concrétiser.
+          <p className="text-primary-foreground/80 text-lg mb-10">
+            Notre équipe est prête à vous accompagner pour le concrétiser. Parlons-en !
           </p>
           <Link href="/contact">
-            <Button size="lg" className="rounded-full px-10 h-14 text-lg font-heading font-bold shadow-xl shadow-primary/20">
-              Démarrer un projet <ArrowRight className="ml-2 h-5 w-5" />
+            <Button size="lg" variant="secondary" className="rounded-full px-10 h-14 text-lg font-heading font-bold">
+              Contactez-nous
             </Button>
           </Link>
         </div>

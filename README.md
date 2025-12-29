@@ -1,115 +1,77 @@
-# Horizon Spatial — Site Web Officiel
+# Horizon Spatial - Site Web Officiel
 
-Bienvenue sur le dépôt du site web officiel de **Horizon Spatial**, bureau d'études expert en urbanisme et géomatique basé en Côte d'Ivoire.
+Bienvenue sur le dépôt du site web officiel de **Horizon Spatial**, un bureau d'études expert en urbanisme et géomatique basé en Côte d'Ivoire. Ce projet vitrine présente l'expertise, les solutions et les réalisations de l'entreprise.
 
-## ✨ Fonctionnalités
-- Interface moderne, responsive et performante (React + Vite + Tailwind 4)
-- Carte interactive des projets (Google Maps via proxy Forge)
-- Formulaire de contact (EmailJS)
-- Bouton WhatsApp flottant (prise de contact rapide)
-- SEO basique (balises meta, Open Graph, Twitter)
+![Horizon Spatial Banner](/client/public/logo-web.jpg)
+
+## 🚀 À propos
+
+Horizon Spatial combine l'expertise urbanistique et les technologies géospatiales les plus avancées pour transformer durablement les territoires africains. Ce site web a été conçu pour refléter cette vision "Futurisme Organique", alliant technologie de pointe et développement durable.
+
+### Fonctionnalités Clés
+
+*   **Design Moderne & Responsive :** Interface utilisateur soignée, adaptée à tous les écrans (mobile, tablette, desktop).
+*   **Carte Interactive des Projets :** Intégration de Google Maps pour géolocaliser les réalisations à travers la Côte d'Ivoire.
+*   **Formulaire de Contact Fonctionnel :** Connecté via EmailJS pour une réception instantanée des messages.
+*   **Bouton WhatsApp Flottant :** Pour une prise de contact rapide et directe.
+*   **Optimisation SEO :** Balises méta complètes, Open Graph et structure sémantique pour un meilleur référencement.
+*   **Pages Dédiées :** Accueil, Expertise, Solutions, Projets, À Propos.
 
 ## 🛠️ Stack Technique
-- Frontend: `React 19`
-- Build: `Vite 5`
-- Styles: `Tailwind CSS 4` + utilitaires (class-variance-authority, tailwind-merge)
-- Routing: `Wouter` (patch appliqué via pnpm)
-- Cartographie: Google Maps JavaScript API
-- Emailing: EmailJS
-- Icônes: Lucide React
 
-## ✅ Prérequis
-- `Node` recommandé: `^20.19.0` ou `>=22.12.0`
-- Gestionnaire de paquets: `pnpm` (recommandé et utilisé par le repo)
-  ```bash
-  npm i -g pnpm
-  ```
+Ce projet est construit avec des technologies web modernes pour assurer performance et maintenabilité :
 
-## 📦 Installation
-```bash
-# Cloner
-git clone https://github.com/lavoisier93/horizon-spatial-website.git
-cd horizon-spatial-website
+*   **Frontend :** [React 19](https://react.dev/)
+*   **Build Tool :** [Vite](https://vitejs.dev/)
+*   **Styling :** [Tailwind CSS 4](https://tailwindcss.com/)
+*   **Routing :** [Wouter](https://github.com/molefrog/wouter)
+*   **Cartographie :** Google Maps JavaScript API
+*   **Emailing :** [EmailJS](https://www.emailjs.com/)
+*   **Icônes :** [Lucide React](https://lucide.dev/)
 
-# Installer les dépendances
-pnpm install
-```
+## 📦 Installation et Démarrage
 
-## 🔑 Configuration de l’environnement
-Dupliquez `.env.example` en `.env` et renseignez vos valeurs:
-```env
-# EmailJS
-VITE_EMAILJS_PUBLIC_KEY=votre_cle_publique
-VITE_EMAILJS_SERVICE_ID=votre_service_id
-VITE_EMAILJS_TEMPLATE_ID=votre_template_id
+Pour lancer ce projet localement, suivez ces étapes :
 
-# Google Maps via Frontend Forge
-VITE_FRONTEND_FORGE_API_KEY=votre_cle_google_maps
-# Optionnel (par défaut: https://forge.butterfly-effect.dev)
-VITE_FRONTEND_FORGE_API_URL=https://forge.butterfly-effect.dev
+1.  **Cloner le dépôt :**
+    ```bash
+    git clone https://github.com/lavoisier93/horizon-spatial-website.git
+    cd horizon-spatial-website
+    ```
 
-# Analytics (Umami) — optionnel
-VITE_ANALYTICS_ENDPOINT=https://analytics.votre-domaine.com
-VITE_ANALYTICS_WEBSITE_ID=uuid-de-votre-site
-```
-- Si `VITE_ANALYTICS_*` n’est pas défini, le script d’analytics n’est pas injecté (aucune erreur au démarrage).
+2.  **Installer les dépendances :**
+    ```bash
+    pnpm install
+    # ou
+    npm install
+    ```
 
-## ▶️ Démarrage
-```bash
-pnpm dev
-```
-- Application disponible sur `http://localhost:3000/`
+3.  **Configurer les variables d'environnement :**
+    Créez un fichier `.env` à la racine du projet et ajoutez vos clés API (voir `.env.example` si disponible) :
+    ```env
+    VITE_EMAILJS_PUBLIC_KEY=votre_cle_publique
+    VITE_EMAILJS_SERVICE_ID=votre_service_id
+    VITE_EMAILJS_TEMPLATE_ID=votre_template_id
+    VITE_FRONTEND_FORGE_API_KEY=votre_cle_google_maps
+    ```
 
-## 📁 Structure du projet
-```
-/client
-  ├─ index.html            # Injection conditionnelle du script analytics
-  ├─ public/               # Assets publics
-  └─ src/
-     ├─ pages/             # Pages (Home, Expertise, Solutions, Projets, About)
-     ├─ components/        # UI et composants applicatifs (WhatsApp, Map, etc.)
-     ├─ contexts/          # Thème, providers
-     ├─ hooks/             # Hooks utilitaires
-     └─ main.tsx           # Entrée React
-/server
-  └─ index.ts              # Entrée serveur (bundle via esbuild)
-/shared
-  └─ const.ts              # Constantes partagées
-vite.config.ts             # Config Vite + plugins
-pnpm-lock.yaml             # Lockfile pnpm
-patches/                   # Patch pnpm (wouter)
-```
-
-## 📜 Scripts utiles
-```bash
-pnpm dev       # Démarrer le serveur de dev
-pnpm build     # Build frontend et bundle serveur (esbuild)
-pnpm preview   # Prévisualiser le build Vite
-pnpm start     # Démarrer le serveur Node en prod (dist/index.js)
-pnpm check     # Vérifier TypeScript (tsc --noEmit)
-pnpm format    # Formatter le code (Prettier)
-```
+4.  **Lancer le serveur de développement :**
+    ```bash
+    pnpm dev
+    ```
+    Le site sera accessible à l'adresse `http://localhost:3000`.
 
 ## 🚀 Déploiement
-- Build: `pnpm build`
-- Variables d’environnement: renseignez les mêmes variables (`.env`) dans votre plateforme (Vercel, Netlify, etc.).
-- Démarrage Node (si hébergement classique): `pnpm start`
 
-## 🧩 Notes d’architecture
-- `vite` est fixé en v5 pour compatibilité avec `@builder.io/vite-plugin-jsx-loc` et `@vitejs/plugin-react@^5`.
-- `wouter` est patché via `pnpm.patchedDependencies` — assurez-vous d’utiliser `pnpm` pour que le patch s’applique.
-- Tailwind 4 est activé via `@tailwindcss/vite`.
-
-## 🩺 Dépannage
-- Conflit de dépendances Vite (`ERESOLVE`): restez sur `vite@^5.x` (le plugin Builder ne supporte pas Vite 7).
-- Avertissement `EBADENGINE` sur Node: mettez à jour Node vers `^20.19.0` ou `>=22.12.0`.
-- Variables Analytics manquantes: le site démarre sans analytics (aucune requête cassée).
-- `pnpm approve-builds`: si pnpm affiche des scripts ignorés (esbuild/oxide), utilisez cette commande pour approuver.
+Le projet est prêt à être déployé sur des plateformes comme Vercel, Netlify ou GitHub Pages.
+Assurez-vous de configurer les variables d'environnement dans les paramètres de votre hébergeur.
 
 ## 👤 Auteur
-**Lavoisier Ousmane** — Urbaniste & Expert SIG
-- Email: [ousmanedlavoisier@gmail.com](mailto:ousmanedlavoisier@gmail.com)
-- Téléphone: +225 07 89 89 10 01
+
+**Lavoisier Ousmane**
+*   *Urbaniste & Expert SIG*
+*   Email : [ousmanedlavoisier@gmail.com](mailto:ousmanedlavoisier@gmail.com)
+*   Téléphone : +225 07 89 89 10 01
 
 ---
-Fait avec passion pour le développement de l'Afrique.
+*Fait avec passion pour le développement de l'Afrique.*

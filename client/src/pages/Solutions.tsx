@@ -3,10 +3,22 @@ import { ArrowRight, Smartphone, Eye, BarChart, Box } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
+import { Helmet } from "react-helmet-async";
 
 export default function Solutions() {
   return (
-    <div className="min-h-screen bg-background font-sans">
+    <div className="bg-background text-foreground">
+      <Helmet>
+        <title>Solutions — Horizon Spatial</title>
+        <meta name="description" content="Découvrez nos solutions sur mesure en urbanisme, SIG, et développement d&apos;applications. Nous transformons vos défis en opportunités de croissance."
+        />
+        <meta property="og:title" content="Solutions — Horizon Spatial" />
+        <meta property="og:description" content="Solutions intégrées pour l&apos;aménagement du territoire, de la planification stratégique au déploiement d&apos;outils géospatiaux avancés."
+        />
+        <meta property="og:url" content="https://www.horizon-spatial.com/solutions" />
+        <meta property="og:image" content="https://www.horizon-spatial.com/logo.jpg" />
+        <link rel="canonical" href="https://www.horizon-spatial.com/solutions" />
+      </Helmet>
       <Navigation />
       
       {/* Header Section */}
@@ -16,11 +28,11 @@ export default function Solutions() {
           <h1 className="font-heading font-bold text-4xl md:text-6xl mb-6 leading-tight">
             Des solutions propriétaires <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">
-              adaptées à l'Afrique
+              adaptées à l&apos;Afrique
             </span>
           </h1>
           <p className="text-muted-foreground text-xl leading-relaxed max-w-2xl mx-auto">
-            Nous développons des outils logiciels innovants pour répondre aux défis spécifiques de l'urbanisation et de la gestion territoriale en Afrique.
+            Nous développons des outils logiciels innovants pour répondre aux défis spécifiques de l&apos;urbanisation et de la gestion territoriale en Afrique.
           </p>
         </div>
       </section>
@@ -39,7 +51,7 @@ export default function Solutions() {
                 <span className="px-3 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground">En Dév.</span>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Module d'Intelligence Artificielle pour la reconnaissance automatique du bâti et de l'occupation des sols à partir d'images satellites et de drones. Accélérez vos diagnostics territoriaux avec une précision inégalée.
+                Module d&apos;Intelligence Artificielle pour la reconnaissance automatique du bâti et de l&apos;occupation des sols à partir d&apos;images satellites et de drones. Accélérez vos diagnostics territoriaux avec une précision inégalée.
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-2 text-sm text-foreground/80">
@@ -64,7 +76,7 @@ export default function Solutions() {
                 <span className="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-medium">MVP</span>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Tableau de bord d'indicateurs territoriaux en temps réel pour le pilotage des politiques publiques. Visualisez vos données clés pour prendre des décisions éclairées et rapides.
+                Tableau de bord d&apos;indicateurs territoriaux en temps réel pour le pilotage des politiques publiques. Visualisez vos données clés pour prendre des décisions éclairées et rapides.
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-2 text-sm text-foreground/80">
@@ -114,7 +126,7 @@ export default function Solutions() {
                 <span className="px-3 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground">Concept</span>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Plateforme de création de jumeaux numériques urbains pour la planification et la simulation. Anticipez l'impact de vos projets d'aménagement dans un environnement virtuel réaliste.
+                Anticipez l&apos;impact de vos projets d&apos;aménagement dans un environnement virtuel réaliste.
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-2 text-sm text-foreground/80">
@@ -167,7 +179,7 @@ export default function Solutions() {
         <div className="container text-center max-w-3xl mx-auto">
           <h2 className="font-heading font-bold text-3xl md:text-4xl mb-6">Intéressé par nos solutions ?</h2>
           <p className="text-muted-foreground text-lg mb-10">
-            Contactez-nous pour une démonstration ou pour discuter de l'intégration de nos outils dans vos processus.
+            Contactez-nous pour une démonstration ou pour discuter de l&apos;intégration de nos outils dans vos processus.
           </p>
           <Link href="/contact">
             <Button size="lg" className="rounded-full px-10 h-14 text-lg font-heading font-bold shadow-xl shadow-primary/20">

@@ -3,10 +3,20 @@ import { ArrowRight, Target, Heart, Users, Award, Linkedin } from "lucide-react"
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "wouter";
+import { Helmet } from "react-helmet-async";
 
 export default function About() {
   return (
     <div className="min-h-screen bg-background font-sans">
+      <Helmet>
+        <title>Horizon Spatial — À propos</title>
+        <meta name="description" content="Découvrez notre vision, notre mission et l’équipe pluridisciplinaire d’Horizon Spatial, bureau d’études de nouvelle génération." />
+        <meta property="og:title" content="Horizon Spatial — À propos" />
+        <meta property="og:description" content="Urbanisme réglementaire, géomatique et technologie au service des territoires africains." />
+        <meta property="og:url" content="https://www.horizon-spatial.com/a-propos" />
+        <meta property="og:image" content="https://www.horizon-spatial.com/logo.jpg" />
+        <link rel="canonical" href="https://www.horizon-spatial.com/a-propos" />
+      </Helmet>
       <Navigation />
       
       {/* Header Section */}
@@ -14,13 +24,13 @@ export default function About() {
         <div className="container text-center max-w-4xl mx-auto">
           <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">Notre Histoire</span>
           <h1 className="font-heading font-bold text-4xl md:text-6xl mb-6 leading-tight">
-            Un bureau d'études de <br />
+            Un bureau d&apos;études de <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
               nouvelle génération
             </span>
           </h1>
           <p className="text-muted-foreground text-xl leading-relaxed max-w-2xl mx-auto">
-            Fondé sur la conviction que l'avenir de l'Afrique passe par une urbanisation maîtrisée et intelligente.
+            Fondé sur la conviction que l&apos;avenir de l&apos;Afrique passe par une urbanisation maîtrisée et intelligente.
           </p>
         </div>
       </section>
@@ -35,7 +45,7 @@ export default function About() {
               </div>
               <h2 className="font-heading font-bold text-3xl mb-4 text-primary">Notre Vision</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Devenir le leader ouest-africain de l'intelligence territoriale en démocratisant l'accès aux technologies géospatiales pour un développement urbain durable et inclusif.
+                Devenir le leader ouest-africain de l&apos;intelligence territoriale en démocratisant l&apos;accès aux technologies géospatiales pour un développement urbain durable et inclusif.
               </p>
             </div>
             
@@ -45,7 +55,7 @@ export default function About() {
               </div>
               <h2 className="font-heading font-bold text-3xl mb-4 text-secondary">Notre Mission</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Accompagner les acteurs publics et privés dans la transformation de leurs territoires en fournissant des données fiables, des analyses précises et des outils d'aide à la décision innovants.
+                Accompagner les acteurs publics et privés dans la transformation de leurs territoires en fournissant des données fiables, des analyses précises et des outils d&apos;aide à la décision innovants.
               </p>
             </div>
           </div>
@@ -77,10 +87,10 @@ export default function About() {
               
               <div className="space-y-6 text-muted-foreground leading-relaxed mb-8">
                 <p>
-                  Avec plus de 8 années d'expérience dans les domaines de l'urbanisme et de la géomatique en Côte d'Ivoire et en Afrique de l'Ouest, Lavoisier Ousmane incarne la double compétence qui fait la force d'Horizon Spatial.
+                  Avec plus de 8 années d&apos;expérience dans les domaines de l&apos;urbanisme et de la géomatique en Côte d&apos;Ivoire et en Afrique de l&apos;Ouest, Lavoisier Ousmane incarne la double compétence qui fait la force d&apos;Horizon Spatial.
                 </p>
                 <p>
-                  Titulaire d'un Double Master en Urbanisme & Aménagement et en Géomatique, il est membre inscrit à l'O.N.U.C.I. (Ordre National des Urbanistes de Côte d'Ivoire) et enseigne la cartographie à l'Université de Bondoukou.
+                  Titulaire d&apos;un Double Master en Urbanisme & Aménagement et en Géomatique, il est membre inscrit à l&apos;O.N.U.C.I. (Ordre National des Urbanistes de Côte d&apos;Ivoire) et enseigne la cartographie à l&apos;Université de Bondoukou.
                 </p>
               </div>
               
@@ -109,7 +119,7 @@ export default function About() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="font-heading font-bold text-3xl md:text-4xl mb-4">Une Équipe Pluridisciplinaire</h2>
             <p className="text-muted-foreground text-lg">
-              L'équipe H-Spatial réunit des compétences complémentaires pour couvrir l'ensemble des métiers de l'aménagement.
+              L&apos;équipe H-Spatial réunit des compétences complémentaires pour couvrir l&apos;ensemble des métiers de l&apos;aménagement.
             </p>
           </div>
 
@@ -125,7 +135,7 @@ export default function About() {
               },
               {
                 title: "Technologie & Innovation",
-                desc: "Développement d'outils, automatisation et intégration de solutions."
+                desc: "Développement d&apos;outils, automatisation et intégration de solutions."
               }
             ].map((item, i) => (
               <div key={i} className="bg-card p-8 rounded-2xl border border-border text-center hover:border-primary transition-colors group">
@@ -145,7 +155,7 @@ export default function About() {
       {/* CTA Section */}
       <section className="py-20 bg-background border-t border-border">
         <div className="container text-center max-w-3xl mx-auto">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-6">Rejoignez l'aventure</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-4xl mb-6">Rejoignez l&apos;aventure</h2>
           <p className="text-muted-foreground text-lg mb-10">
             Nous sommes toujours à la recherche de talents passionnés par la ville et la technologie.
           </p>
